@@ -1,0 +1,264 @@
+@mixin respond($breakpoint) {
+      @if $breakpoint == phone {
+            @media only screen and (max-width:600px) {
+                  @content;
+            }
+      }
+
+      @if $breakpoint == tablet_portrait {
+            @media only screen and (min-width:600px) {
+                  @content;
+            }
+      }
+      @if $breakpoint == tablet_landscape {
+            @media only screen and (min-width:900px) {
+                  @content;
+            }
+      }
+      @if $breakpoint == desktop {
+            @media only screen and (min-width:1200px) {
+                  @content;
+            }
+      }
+      @if $breakpoint == big-desktop {
+            @media only screen and (min-width:1800px) {
+                  @content;
+            }
+      }
+}
+
+
+*,
+*::after,
+*::before {
+      padding: 0;
+      margin: 0;
+      box-sizing: inherit;
+}
+
+html {
+      font-size: 62.5%;
+      box-sizing: border-box;
+
+      @include respond (desktop) {
+            font-size: 80%;
+
+      }
+}
+
+:root {
+      --color-primary: hsl(217, 19%, 35%);
+      --color-secondary:hsl(212, 23%, 69%);
+      --color-tertiary: hsl(214, 17%, 51%);
+      --color-white: hsl(210, 46%, 95%);
+      --weight-small: 500;
+      --weight--large:700;
+}
+
+body {
+      font-family: "Manrope",sans-serif;
+      font-size: 1.3rem;
+      height: 100vh;
+      background-color: var(--color-white);
+      overflow-x:hidden;
+}
+
+.container {
+      padding: 5rem 1.5rem;
+      background-color: var(--color-white);
+      @include respond (desktop) {
+            padding: 5rem 30rem;
+      }
+      @include respond (tablet_landscape) {
+            padding: 5rem 15rem;
+      }
+      @include respond (tablet_portrait) {
+           height: 100vh;
+           display: flex;
+           align-items: center;
+      }
+}
+
+.card {
+      border-radius:10px;
+      box-shadow: 0 3rem 2rem rgba(0, 0 , 0, 0.2);
+      position: relative;
+
+      @include respond (tablet_portrait) {
+            display: flex;
+      }
+
+      &__image-box {
+            overflow: hidden;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+
+            
+            @include respond (tablet_portrait) {
+                  border-top-left-radius: 10px;
+                  border-bottom-left-radius: 10px;
+                  border-top-right-radius: 0;
+            }
+      }
+      
+      &__image{
+            display: block;
+            width: 100%;
+            
+            @include respond (tablet_portrait) {
+                  height: 100%;
+                  object-fit: cover;
+            }
+      }
+
+      &__content {
+            padding: 4rem 2rem;
+            background-color: #fff;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+      }
+
+      &__header {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            line-height: 2rem;
+            font-weight: var(--weight--large);
+            margin-bottom: 2.4rem;
+      }
+
+      &__text {
+            font-size: 1.3rem;
+            font-weight: var(--weight-small);
+            color: var(--color-tertiary);
+            line-height: 2rem;
+      }
+
+      &__review{
+            margin-top: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            &-image-box {
+                  margin-right: 2rem;
+                 
+                  width: 5rem;
+                  height: 5rem;
+                  
+            }
+
+            &__image {
+                  width: 100%;
+                  display: block;
+                  border-radius: 50%;
+                  
+
+            }
+
+            &__header {
+                  color: var(--color-primary);
+                  font-weight: var(--weight--large);
+            }
+
+            &__date {
+                  color: var(--color-tertiary);
+                  font-weight: var(--weight-small);
+            }
+
+
+            &__icon-box {
+                  fill: var(--color-primary) !important;
+                  color: var(--color-primary) !important;
+                  background-color: var(--color-white);
+                  border-radius: 50%;
+                  width: 4rem;
+                  height: 4rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+
+                  margin-left: auto;
+
+                  cursor:pointer;
+            }
+
+            &__icon {
+                  fill: var(--color-primary) !important;
+                  color: var(--color-primary) !important;
+                  width: 2rem ;
+                  height: 2rem;
+            }
+      }
+}
+
+.hide {
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+      @include respond (tablet_portrait) {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+      }
+}
+
+.card__navigations {
+      background-color: var(--color-primary);
+      display: flex;
+      // width: 100%;
+      margin-right: -1.9rem;
+      align-items: center;
+      margin-left: -1.9rem;
+      position: absolute;
+      width: 100%;
+      justify-content: space-around;
+      height: 5rem;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 0 2rem;
+      margin-top: 2.4rem;
+      display: none;
+      padding: 4rem 2rem;
+
+      @include respond (tablet_portrait) {
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+      }
+
+      .text {
+            color: var(--color-white);
+            margin-right: 3rem;
+      }
+      .main {
+            margin-left: auto;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+      }
+}
+
+.card__social {
+      height: 2rem;
+      width: 2rem;
+
+      &--sp {
+            margin-right: 2rem;
+      }
+
+      @include respond (tablet_portrait) {
+            display: none;
+      }
+}
+
+.card {
+      padding-bottom: 0rem;
+}
+
+.show {
+      display: flex;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <title>Frontend Mentor | Article preview component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card__image-box">
+        <img src="images/drawers.jpg" alt="Drawers" class="card__image">
+      </div>
+      <div class="card__content">
+        <h3 class="card__header">
+          Shift the overall look and feel by adding these wonderful
+          touches to furniture in your home
+        </h3>
+        <p class="card__text">
+          Ever been in a room and felt like something was missing? Perhaps
+          it felt slightly bare and uninviting. I’ve got some simple tips
+          to help you make any room feel complete.
+        </p>
+
+        <div class="card__review" id="hide">
+          <div class="card__review-image-box">
+            <img src="images/avatar-michelle.jpg" alt="avatar-michelle" class="card__review__image">
+          </div>
+          <div class="card__review__info">
+            <h3 class="card__review__header">
+              Michelle Appleton
+            </h3>
+            <p class="card__review__date">
+              28 Jun 2020
+            </p>
+          </div>
+          <div class="card__review__icon-box" id="toggle">
+            <svg class="card__review__icon">
+              <use xlink:href="images/sprite.svg#icon-pinterest"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="card__navigations" id="unopened">
+          <span class="text">
+            Share
+          </span>
+          <svg class="card__social card__social--sp">
+            <use xlink:href = "images/sprite.svg#icon-facebook"></use>
+          </svg>
+          <svg class="card__social card__social--sp">
+            <use xlink:href = "images/sprite.svg#icon-twitter"></use>
+          </svg>
+          <svg class="card__social card__social--sp">
+            <use xlink:href = "images/sprite.svg#icon-share"></use>
+          </svg>
+
+          <div class="main" id="show">
+            <svg class="card__social">
+              <use xlink:href = "images/sprite.svg#icon-pinterest"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 
+
+  
+
+  Michelle Appleton
+  28 Jun 2020
+
+  Share
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script src="Js/App.js"></script>
+</body>
+</html>
